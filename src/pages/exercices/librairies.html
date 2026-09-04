@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>uuid</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+</head>
+
+<body>
+    <h1 class="page-title">Exercices Librairie </h1>
+
+    <!-- La card pour tester la librairie uuid -->
+    <div class="card min-w-96 bg-cyan-400 card-md shadow-sm w-0.5">
+        <div class="card-body">
+            <h2 class="card-title">uuid</h2>
+            <h3 class="text-sm text-base-content/30">npm install uuid</h3>
+            <p>Dans cette div on va afficher un uuid et utiliser les principales fonctions de la librairie</p>
+            <div id="uuid-container">
+                <p id="uuid-text">UUID :</p>
+                <p id="uuid-version">UUID version :</p>
+                <p id="uuid-validate">UUID valide ?:</p>
+            </div>
+        </div>
+    </div>
+        <!-- Librairie Leaflet -->
+        <h2>Map leaflet</h2>
+        <div class="h-100 w-full" id="leaflet-container"></div>
+        <script type="module" src="/src/pages/exercices/librairies.js"></script>
+</body>
+
+</html>

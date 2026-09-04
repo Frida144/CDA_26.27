@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+h1 {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+.page-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 1.5rem 0 1rem;
+  color: #111827;
+}
+
+.maSuperClasseCss {
+  background-color: chartreuse;
+  color: white;
+  border: 1px solid black;
+  font-size: 600%;
+}
+
+#map { height: 200px; }

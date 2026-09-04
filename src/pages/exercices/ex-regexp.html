@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Exercice Regexp</title>
+</head>
+<body class="min-h-screen bg-base-200">
+    <main class="flex min-h-screen items-center justify-center px-4 py-8">
+        <section class="card w-full max-w-md bg-base-100 shadow-xl" aria-labelledby="login-title">
+            <div class="card-body">
+                <h1 id="login-title" class="card-title text-3xl">Connexion</h1>
+                <p class="text-base-content/70">Connectez-vous à votre espace.</p>
+
+                <form class="mt-4 space-y-4" action="#" method="post">
+                    <div class="form-control">
+                        <label class="login-mail" for="login-mail">
+                            <span class="label-text">Adresse e-mail</span>
+                        </label>
+                        <input  
+                            id="login-mail"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            placeholder="vous@exemple.com"
+                            class="input input-bordered w-full"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-control">
+                        <label class="login-password" for="login-password">
+                            <span class="label-text">Mot de passe</span>
+                        </label>
+                        <input
+                            id="login-password"
+                            name="password"
+                            type="password"
+                            autocomplete="current-password"
+                            placeholder="Votre mot de passe"
+                            class="input input-bordered w-full"
+                            required
+                        />
+                    </div>
+                   
+                    <button type="submit" class="btn btn-primary w-full">Se connecter</button>
+                </form>
+            </div>
+        </section>
+                <section class="card w-full max-w-md bg-base-100 shadow-xl" aria-labelledby="login-title">
+        <p>Le mot de passe est: </p>
+         <div id="control"></div>
+        </section>
+    </main>
+
+    <script type="module" src="/src/pages/exercices/ex-regexp.js"></script>
+</body>
+</html>

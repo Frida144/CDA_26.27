@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice Classes</title>
+</head>
+
+<body class="min-h-screen">
+    <h1>Exercice Classes</h1>
+    <script type="module">
+        console.log("Exercice Classe P.O.O II");
+        class Character {
+            constructor(name) {
+                this.name = name;
+                this.hp = 100;
+                this.maxHp = 100;
+                this.stamina = 50;
+                this.mp = 50;
+                this.attackPower = 15;
+                this.magicPower = 25;
+            }
+            //* Attaque physique : 
+            //Ca consomme de la stamina, ca enlève des HP à la target (attackPower)
+            //Si la stamina est inférieure à 10, on ne peut pas attaquer
+            attack(target) {
+                if (this.stamina >= 10) {
+                    this.stamina -= 10;
+                    target.hp -= this.attackPower;
+                    console.log(`${this.name} attaque ${target.name} et inflige ${this.attackPower} dégâts !`);
+                } else {
+                    console.log(`${this.name} est trop fatigué pour attaquer !`);
+                }
+            }
+
+            //* Attaque magique : 
+            //Ca consomme de la mana, ca enlève des HP à la target (magicPower)
+            //Si la mana est inférieure à 15, on ne peut pas attaquer
+            attackMagique(target) {
+                if (this.mp >= 15) {
+                    this.mp -= 15;
+                    target.hp -= this.magicPower;
+                    console.log(`${this.name} lance un sort sur ${target.name} et inflige ${this.magicPower} dégâts magiques !`);
+                } else;
+                console.log(`${this.name} n'a plus assez de mana !`);
+            }
+
+            //* Soin : 
+            //Ca ajoute des HP à l'attaquant (amount)
+            //Si les HP sont supérieurs au maxHP, on les met à maxHP
+            soin(amount) {
+                this.hp += amount;
+                // Sécurité : on ne dépasse pas le maxHP
+                if (this.hp > this.maxHp) {
+                    this.hp = this.maxHp;
+                }
+                console.log(`${this.name} se soigne. HP actuels: ${this.hp}`);
+            }
+
+            //Affichage des infos du personnage
+            display() {
+                console.log(`${this.name} -> HP: ${this.hp}/${this.maxHp} | Stamina: ${this.stamina} | MP: ${this.mp}`);
+            }
+        }
+        // 1. Initialisation du combat
+        const hero = new Character("Aragon");
+        const boss = new Character("Gritch le Troll");
+
+        console.log("--- ⚔️ LE COMBAT COMMENCE ⚔️ ---");
+        console.log(`${hero.name} arrive face à ${boss.name} !`);
+        console.log("----------------------------------");
+
+        // 2. Tour 1 : Le héros attaque physiquement
+        hero.attack(boss);
+
+        // 3. Tour 2 : Le héros utilise la magie
+        hero.attackMagique(boss);
+
+        // 4. Tour 3 : Le monstre réplique (Test de l'interaction entre deux instances)
+        // On utilise le boss pour attaquer le héros
+        boss.attack(hero);
+
+        // 5. Tour 4 : Le héros est affaibli, il doit se soigner
+        console.log("\n--- ⚠️ Le héros est mal en point ! ---");
+        hero.soin(30);
+
+        // 6. Tour 5 : Tentative d'attaque magique alors qu'il n'a presque plus de mana
+        // (On va forcer une grosse dépense pour tester la limite)
+        console.log("\n--- 🪄 Tentative de sort ultime ---");
+        hero.attackMagique(boss); // Doit fonctionner
+        hero.attackMagique(boss); // Doit échouer (plus de MP)
+
+        // 7. Tour 6 : Tentative d'attaque physique alors qu'il n'a plus de stamina
+        console.log("\n--- 🏃 Tentative d'attaque épuisée ---");
+        hero.attack(boss); // Doit fonctionner
+        hero.attack(boss); // Doit échouer (plus de stamina)
+
+        // 8. Résultat Final
+        console.log("----------------------------------");
+        console.log(" FIN DU COMBAT ");
+        console.log(`${hero.name} Statut final -> HP: ${hero.hp}/${hero.maxHp} | Stamina: ${hero.stamina} | MP: ${hero.mp}`);
+        console.log(`${boss.name} Statut final -> HP: ${boss.hp}/${boss.maxHp}`);
+    </script>
+
+    <script type="module" src="/src/pages/exercices/ex-classe.js"></script>
+</body>
+
+</html>

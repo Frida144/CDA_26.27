@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css">
+    <title>L'Histoire de JavaScript | Jefff303.js</title>
+</head>
+
+<body class="min-h-screen bg-base-200">
+    <div class="drawer min-h-screen">
+        <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col min-h-screen">
+
+            <div id="navbar-container"></div>
+
+            <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+
+                <section class="text-center mb-10">
+                    <h1 class="text-4xl font-bold mb-4">L'Histoire de JavaScript</h1>
+                    <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+                        De sa création précipitée à son règne incontesté, l'histoire de JavaScript est marquée par des révolutions qui ont transformé le développement web et au-delà.
+                    </p>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">👉 La naissance et la guerre des navigateurs</h2>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li>**1995** : Brendan Eich, chez Netscape Communications, est chargé de créer un langage de script pour le navigateur en seulement dix jours. Il le baptise d'abord **Mocha**, puis **LiveScript**.</li>
+                                <li>**Un coup marketing** : Le nom est rapidement changé en **JavaScript** pour profiter de l'engouement autour de **Java**, un langage très populaire à l'époque.</li>
+                                <li>**La "JScript" de Microsoft** : En réponse à Netscape, Microsoft crée sa propre implémentation, **JScript**, pour Internet Explorer 3. Cette fragmentation du langage est le début d'une "guerre des navigateurs".</li>
+                                <li>**La normalisation** : En 1997, le langage est standardisé par l'ECMA (European Computer Manufacturers Association) sous le nom d'**ECMAScript**. Cette normalisation est cruciale pour assurer que le code fonctionne de la même manière sur tous les navigateurs.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-primary text-primary-content shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">⚡ Les révolutions qui ont changé la donne</h2>
+                            <div class="space-y-6">
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">2006 : L'avènement d'AJAX</h3>
+                                    <p>
+                                        L'ingénieur de Google, Jesse James Garrett, popularise le terme **AJAX** (**A**synchronous **J**avaScript **a**nd **X**ML). Cette technique permet de récupérer des données du serveur en arrière-plan sans recharger la page. Cela ouvre la voie aux **applications web dynamiques** modernes, comme Gmail et Google Maps, qui offrent une expérience utilisateur similaire à celle d'une application de bureau.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">2008-2009 : V8 et Node.js</h3>
+                                    <p>
+                                        Google lance son moteur JavaScript **V8** pour le navigateur Chrome. Extrêmement rapide, V8 améliore considérablement les performances de JavaScript. Dans la foulée, Ryan Dahl utilise V8 pour créer **Node.js**, un environnement d'exécution JavaScript pour les serveurs. C'est la fin du monopole du navigateur pour JavaScript, qui devient un langage **full-stack**.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">🌱 La maturité et le règne de l'écosystème</h2>
+                            <div class="space-y-6">
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">2015 : ECMAScript 2015 (ES6)</h3>
+                                    <p>
+                                        Après des années d'attente, **ES6** apporte une mise à jour majeure avec des fonctionnalités très demandées : **classes**, **promesses** pour la gestion de l'asynchrone, des syntaxes plus concises comme les **flèches de fonctions** et la déstructuration. Ces ajouts ont propulsé la modernité et la lisibilité du langage.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">Le boom des frameworks et des librairies</h3>
+                                    <p>
+                                        Le développement de l'écosystème explose. **React** (2013), **Angular** (2010) et **Vue.js** (2014) révolutionnent la construction d'interfaces utilisateur complexes et modulaires. Des outils comme **Webpack** et **Babel** permettent aux développeurs d'utiliser les dernières fonctionnalités de JavaScript, même sur des navigateurs plus anciens.
+                                    </p>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">L'omniprésence du langage</h3>
+                                    <p>
+                                        Aujourd'hui, JavaScript n'est plus cantonné au web. Il est le pilier du développement mobile (React Native, NativeScript), des applications de bureau (Electron), du machine learning et même de l'Internet des Objets (IoT), confirmant son statut de langage universel du web.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                <section>
+                    <div class="card bg-neutral text-neutral-content shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">✅ En résumé</h2>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li>**1995** : Naissance express chez Netscape.</li>
+                                <li>**1997** : Normalisation par l'ECMA.</li>
+                                <li>**2006** : Ajax et la naissance des applications web dynamiques.</li>
+                                <li>**2009** : Node.js le propulse côté serveur.</li>
+                                <li>**2015** : ES6 modernise le langage.</li>
+                                <li>**Aujourd'hui** : Un écosystème massif et une utilisation sur toutes les plateformes, du web au mobile.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

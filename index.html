@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Companion JavaScript</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="min-h-screen bg-base-200 text-base-content">
+    <header class="navbar border-b border-base-300 bg-base-100 px-4 shadow-sm sm:px-8">
+      <div class="flex-1">
+        <a href="/" class="btn btn-ghost text-lg font-bold sm:text-xl">Companion JS</a>
+      </div>
+      <div class="flex-none">
+        <a href="/src/pages/exercices/ex-regexp.html" class="btn btn-primary btn-sm sm:btn-md">Se connecter</a>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-8 sm:px-8 sm:py-12">
+      <section class="hero rounded-2xl bg-neutral text-neutral-content shadow-xl">
+        <div class="hero-content w-full justify-between gap-8 px-6 py-10 sm:px-12 sm:py-14 lg:flex-row">
+          <div class="max-w-2xl">
+            <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-primary-content/70">Parcours JavaScript</p>
+            <h1 class="text-3xl font-black leading-tight sm:text-5xl">Apprenez JavaScript en pratiquant</h1>
+            <p class="mt-4 max-w-xl text-base-content/80 sm:text-lg">Des leçons courtes, des exemples concrets et des exercices pour progresser à votre rythme.</p>
+          </div>
+          <div class="w-full max-w-sm border-l-4 border-primary pl-5">
+            <p class="text-sm font-semibold uppercase tracking-wide text-primary-content/70">La pensée du jour</p>
+            <p id="daily-quote" class="mt-2 text-lg font-medium italic" aria-live="polite">Une citation se prépare...</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="mt-10 grid gap-8 lg:grid-cols-2">
+        <section class="card bg-base-100 shadow-lg" aria-labelledby="lessons-title">
+          <div class="card-body">
+            <div class="flex items-center justify-between gap-4">
+              <h2 id="lessons-title" class="card-title text-2xl">Leçons</h2>
+              <span class="badge badge-primary">14 modules</span>
+            </div>
+            <div class="mt-4 grid gap-2 sm:grid-cols-2">
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/histoireJs.html">L'histoire de JavaScript</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/setup.html">Setup avec Vite</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/numbers.html">Nombres et calculs</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/variables.html">Variables</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/strings.html">Chaînes de caractères</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/arrays.html">Tableaux</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/functions.html">Fonctions</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/objects.html">Objets</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/loops.html">Boucles</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/dom-attributes.html">Attributs DOM</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/dom-selectors.html">Sélecteurs DOM</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/dom-events.html">Événements DOM</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/conditions.html">Conditions</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/classes.html">Classes</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/variables-env.html">Variables d'environnement</a>
+              <a class="btn btn-ghost justify-start" href="/src/pages/lesons/regexp.html">RegExp</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="card bg-primary text-primary-content shadow-lg" aria-labelledby="exercises-title">
+          <div class="card-body">
+            <div class="flex items-center justify-between gap-4">
+              <h2 id="exercises-title" class="card-title text-2xl">Exercices</h2>
+              <span class="badge badge-neutral">7 ateliers</span>
+            </div>
+            <p class="mt-2 opacity-80">Mettez vos connaissances en pratique avec des défis progressifs.</p>
+            <div class="mt-4 grid gap-2 sm:grid-cols-2">
+              <a class="btn btn-neutral justify-start" href="/src/pages/exercices/ex-variables.html">Exercice variables</a>
+              <a class="btn btn-neutral justify-start" href="/src/pages/exercices/ex-dom-selectors-modif.html">Sélecteurs et modifications</a>
+              <a class="btn btn-neutral justify-start" href="/src/pages/exercices/ex-event.html">Événements</a>
+              <a class="btn btn-neutral justify-start" href="/src/pages/exercices/librairies.html">Librairies</a>
+              <a class="btn btn-neutral justify-start" href="/src/pages/exercices/ex-api.html">API et Fetch</a>
+              <a class="btn btn-neutral justify-start" href="/src/pages/exercices/ex-regexp.html">Formulaire RegExp</a>
+              <a class="btn btn-neutral justify-start sm:col-span-2" href="/src/pages/exercices/ex-classes.html">Classes P.O.O</a>
+              <a class="btn btn-neutral justify-start sm:col-span-2" href="/src/pages/exercices/ex-randomUserApi.html">Affichage d'un utilisateur aléatoire (Random User API)</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+
+  </body>
+</html>

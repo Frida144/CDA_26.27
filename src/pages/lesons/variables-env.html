@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/style.css">
+  <title>Les variables d'environnement | Jefff303.js</title>
+</head>
+
+<body class="min-h-screen bg-base-200">
+  <div class="drawer min-h-screen">
+    <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col min-h-screen">
+      
+      <!-- Navbar -->
+      <div id="navbar-container"></div>
+
+      <!-- Main Content -->
+      <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+        
+        <!-- Hero Section -->
+        <section class="text-center mb-10">
+          <h1 class="text-4xl font-bold mb-4">Les variables d'environnement</h1>
+          <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+            Les variables d’environnement permettent de stocker des informations sensibles ou spécifiques à un environnement 
+            (clé API, URL de base, configuration...). Elles sont essentielles pour rendre vos applications sécurisées et configurables.
+          </p>
+        </section>
+
+        <!-- Explication -->
+        <section class="mb-12">
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title text-2xl">👉 Pourquoi utiliser des variables d'environnement ?</h2>
+              <ul class="list-disc list-inside space-y-2 mt-3">
+                <li>Ne pas exposer vos clés API directement dans le code.</li>
+                <li>Changer facilement la configuration entre <span class="badge badge-primary">développement</span>, <span class="badge badge-secondary">staging</span> et <span class="badge badge-accent">production</span>.</li>
+                <li>Améliorer la sécurité et la maintenabilité du projet.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Exemple avec Vite -->
+        <section class="mb-12">
+          <div class="card bg-primary text-primary-content shadow-lg">
+            <div class="card-body">
+              <h2 class="card-title text-2xl">⚡ Variables d’environnement avec Vite</h2>
+              <p class="mb-4">
+                Vite charge automatiquement les fichiers <code>.env</code>. Les variables doivent commencer par 
+                <code>VITE_</code> pour être accessibles côté client.
+              </p>
+              <pre class="mockup-code text-left">
+                <code># .env
+VITE_API_URL=https://api.monsite.com
+VITE_API_KEY=123456789</code>
+              </pre>
+              <p class="mt-4">Ensuite, vous pouvez les utiliser dans votre code :</p>
+              <pre class="mockup-code text-left">
+                <code>// main.js
+console.log(import.meta.env.VITE_API_URL);
+console.log(import.meta.env.VITE_API_KEY);
+</code>
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Exemple avec DotEnv -->
+        <section class="mb-12">
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h2 class="card-title text-2xl">🌱 Utiliser DotEnv dans Node.js</h2>
+              <p class="mb-4">
+                Pour un projet Node.js (hors Vite), on peut utiliser la librairie <code>dotenv</code>.
+              </p>
+              <pre class="mockup-code text-left">
+                <code># .env
+API_SECRET=mySuperSecretKey</code>
+              </pre>
+              <pre class="mockup-code text-left">
+                <code>// server.js
+import dotenv from "dotenv";
+dotenv.config();
+
+console.log(process.env.API_SECRET);
+</code>
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bonnes pratiques -->
+        <section>
+          <div class="card bg-neutral text-neutral-content shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title text-2xl">✅ Bonnes pratiques</h2>
+              <ul class="list-disc list-inside space-y-2 mt-3">
+                <li>Ne JAMAIS commiter votre fichier <code>.env</code>.</li>
+                <li>Créer un fichier <code>.env.example</code> pour documenter les variables nécessaires.</li>
+                <li>Utiliser des préfixes clairs (ex : <code>VITE_</code> pour le frontend).</li>
+                <li>Changer les clés en cas de fuite.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <div id="footer-container"></div>
+    </div>
+  </div>
+  
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

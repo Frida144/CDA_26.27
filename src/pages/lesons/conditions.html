@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Les conditions if/else et switch | Jefff303.js</title>
+</head>
+
+<body class="min-h-screen bg-base-200">
+    <div class="drawer min-h-screen">
+        <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col min-h-screen">
+
+            <div id="navbar-container"></div>
+
+            <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+
+                <section class="text-center mb-10">
+                    <h1 class="text-4xl font-bold mb-4">Les conditions : if/else et switch</h1>
+                    <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+                        Les conditions permettent à votre code de prendre des décisions. Elles exécutent différents
+                        blocs de code en fonction de l'évaluation d'une expression à `true` ou `false`.
+                    </p>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">👉 L'instruction if / else</h2>
+                            <p class="mb-4">
+                                La structure `if` est la plus courante. Elle exécute un bloc de code si une condition
+                                est vraie. On peut la combiner avec `else if` pour d'autres conditions, et `else` pour
+                                le cas par défaut.
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+const temperature = 25;
+
+if (temperature > 30) {
+  console.log('Il fait très chaud !');
+} else if (temperature >= 20) {
+  console.log('Il fait bon.');
+} else {
+  console.log('Il fait frais.');
+}
+// Affiche 'Il fait bon.'
+                </code>
+              </pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-primary text-primary-content shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">⚡ L'instruction switch</h2>
+                            <p class="mb-4">
+                                L'instruction `switch` est une alternative plus lisible aux chaînes de `if/else if`
+                                lorsque vous comparez une seule expression à plusieurs valeurs possibles.
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+const jourDeLaSemaine = 'lundi';
+let message;
+
+switch (jourDeLaSemaine) {
+  case 'lundi':
+    message = 'Bonne semaine !';
+    break;
+  case 'vendredi':
+    message = 'Le weekend approche !';
+    break;
+  case 'samedi':
+  case 'dimanche':
+    message = 'Profite bien du weekend !';
+    break;
+  default:
+    message = 'Jour de la semaine classique.';
+}
+console.log(message); // Affiche 'Bonne semaine !'
+                </code>
+              </pre>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li><span class="badge badge-primary">`case`</span> : Définit une valeur à comparer.
+                                </li>
+                                <li><span class="badge badge-secondary">`break`</span> : Stoppe l'exécution du `switch`.
+                                    **Très important** pour éviter que le code ne s'exécute dans les cas suivants.</li>
+                                <li><span class="badge badge-accent">`default`</span> : Exécute le code si aucun `case`
+                                    ne correspond.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">🌱 if/else vs. switch</h2>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li><span class="font-bold">`if/else`</span> :
+                                    <ul class="list-disc list-inside ml-6">
+                                        <li>Idéal pour les **conditions complexes** basées sur des plages de valeurs
+                                            (ex: `age > 18`).</li>
+                                        <li>Utile quand il y a peu de conditions.</li>
+                                    </ul>
+                                </li>
+                                <li><span class="font-bold">`switch`</span> :
+                                    <ul class="list-disc list-inside ml-6">
+                                        <li>Idéal pour les **conditions simples** qui testent une variable unique par
+                                            rapport à plusieurs valeurs discrètes (ex: un statut, un mois de l'année).
+                                        </li>
+                                        <li>Souvent plus lisible si vous avez de nombreux cas (`case`).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="card bg-neutral text-neutral-content shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">✅ Bonnes pratiques</h2>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li>Utilisez des noms de variables clairs pour vos conditions.</li>
+                                <li>Indentez correctement votre code pour une meilleure lisibilité.</li>
+                                <li>Assurez-vous de toujours inclure un `break` dans vos `case` d'un `switch` (sauf si
+                                    vous souhaitez un comportement spécifique).</li>
+                                <li>Le `default` dans un `switch` est une bonne pratique pour gérer les cas inattendus.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
