@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Leçon : Timing en JavaScript</title>
+</head>
+
+<body class="min-h-screen">
+    <div class="drawer min-h-screen">
+        <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col min-h-screen">
+            <div id="navbar-container"></div>
+
+            <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+                <h1 class="text-4xl font-bold mb-4">⏱️ Gérer le Temps en JavaScript</h1>
+                <p class="text-lg text-base-content/70 max-w-2xl mb-6">
+                    Apprenez à utiliser les fonctions de **timing** du navigateur pour exécuter du code
+                    après un délai (`setTimeout`) ou de manière répétée (`setInterval`).
+                    Ces fonctions sont au cœur de l'asynchronisme côté client.
+                </p>
+
+                <div class="card bg-base-100 shadow-xl mb-6">
+                    <div class="card-body">
+                        <h2 class="card-title text-2xl">1. Exécution unique avec <code
+                                class="text-secondary">setTimeout()</code></h2>
+                        <p>
+                            `setTimeout()` exécute une fonction **une seule fois** après un délai spécifié (en
+                            millisecondes).
+                            Il est parfait pour différer une action (par exemple, afficher une notification d'erreur
+                            après 3 secondes).
+                        </p>
+
+                        <h3 class="font-semibold mt-3">Syntaxe :</h3>
+                        <pre class="mockup-code"><code>
+const timerId = setTimeout(fonctionAExecuter, delaiEnMillisecondes);
+            </code></pre>
+
+                        <h3 class="font-semibold mt-3">Exemple :</h3>
+                        <pre class="mockup-code"><code>
+const message = 'Ce message apparaît après 2 secondes.';
+
+// La fonction s'exécute après 2000 millisecondes
+const timeoutID = setTimeout(() => {
+    console.log(message); 
+}, 2000);
+            </code></pre>
+
+                        <div class="alert alert-info mt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                class="stroke-current shrink-0 w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>**Annulation :** Utilisez <code class="font-bold">clearTimeout(timerId)</code> pour
+                                annuler l'exécution avant qu'elle ne se produise.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-200 shadow-lg mb-6">
+                    <div class="card-body">
+                        <h2 class="card-title text-2xl">2. Exécution répétée avec <code
+                                class="text-accent">setInterval()</code></h2>
+                        <p>
+                            `setInterval()` exécute une fonction de manière **répétée** à chaque intervalle de temps
+                            spécifié.
+                            C'est la fonction utilisée pour créer des horloges ou des carrousels automatiques.
+                        </p>
+
+                        <h3 class="font-semibold mt-3">Syntaxe :</h3>
+                        <pre class="mockup-code"><code>
+const intervalId = setInterval(fonctionAExecuter, intervalleEnMillisecondes);
+            </code></pre>
+
+                        <h3 class="font-semibold mt-3">Exemple (Horloge Simple) :</h3>
+                        <pre class="mockup-code"><code>
+let counter = 0;
+
+// La fonction s'exécute toutes les 1000 millisecondes (1 seconde)
+const intervalID = setInterval(() => {
+    counter++;
+    console.log(`Le temps passe... ${counter}s`);
+    
+    if (counter >= 5) {
+        // Obligatoire : arrêter l'intervalle après un certain temps
+        clearInterval(intervalID);
+        console.log("Intervalle arrêté.");
+    }
+}, 1000);
+            </code></pre>
+
+                        <div class="alert alert-warning mt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                            <span>**Arrêt crucial :** Vous DEVEZ utiliser <code
+                                    class="font-bold">clearInterval(intervalId)</code>. Sans cela, l'exécution se
+                                poursuivra indéfiniment, consommant des ressources.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-primary text-primary-content shadow-lg">
+                    <div class="card-body">
+                        <h2 class="card-title">🧠 Concept Asynchrone</h2>
+                        <p>
+                            Les fonctions de timing ne bloquent pas le fil d'exécution principal de JavaScript.
+                            Elles sont envoyées à la **Web API** du navigateur, qui les gère en parallèle et les renvoie
+                            à la file d'attente d'événements (Event Loop) une fois le délai écoulé.
+                        </p>
+                        <h3 class="card-title mt-4">🚀 Exercice pratique</h3>
+                        <p>
+                            Créez un élément **div** dans votre page. Utilisez `setInterval()` pour changer sa couleur
+                            de fond
+                            (`element.style.backgroundColor`) toutes les 500 millisecondes. Arrêtez le changement après
+                            10 secondes
+                            en utilisant `setTimeout()`.
+                        </p>
+                    </div>
+                </div>
+
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

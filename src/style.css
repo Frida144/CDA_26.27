@@ -1,13 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-h1 {
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  margin: 0;
-}
-
 .page-title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Awards</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="min-h-screen bg-base-200 text-base-content">
+    
+    <main class="mx-auto w-full max-w-6xl px-6 py-10">
+        <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+                <p class="text-sm font-bold uppercase tracking-widest text-primary">Sélection officielle</p>
+                <h2 class="mt-2 text-3xl font-black">Les films en compétition</h2>
+            </div>
+        </div>
+
+        <div id="movie-list" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" aria-live="polite"></div>
+    </main>
+    
+    <script type="module" src="/src/pages/tp/movie-award.js"></script>
+</body>
+</html>
