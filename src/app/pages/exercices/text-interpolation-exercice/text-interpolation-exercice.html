@@ -1,0 +1,94 @@
+<div class="container mx-auto px-4 py-8 max-w-4xl space-y-8">
+
+  <!-- En-tête -->
+  <div class="border-b border-base-300 pb-4">
+    <!-- String classique -->
+    <h1 class="text-3xl font-bold text-primary">{{ courseTitle }}</h1>
+    <p class="text-sm text-base-content/70">
+      Affichage de variables de différents types avec la syntaxe.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- Carte 1 : Variables numériques & calculs -->
+    <div class="card bg-base-100 shadow-md border border-base-200">
+      <div class="card-body">
+        <h2 class="card-title text-base">1. Types primitifs</h2>
+        <div class="divider my-1"></div>
+
+        <ul class="space-y-2 text-sm">
+          <li>
+            <span class="font-semibold">Note maximale :</span>
+            <span class="badge badge-neutral">{{ maxScore }} / 20</span>
+          </li>
+
+          <li>
+            <span class="font-semibold">Score actuel :</span>
+            <span class="badge badge-primary">{{ currentScore }} / {{ maxScore }}</span>
+          </li>
+
+          <!-- Calcul JS directement dans le template -->
+          <li>
+            <span class="font-semibold">Pourcentage :</span>
+            <span class="text-secondary font-mono">{{ (currentScore / maxScore) * 100 }}%</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Carte 2 : Objet & Appel de méthode -->
+    <div class="card bg-base-100 shadow-md border border-base-200">
+      <div class="card-body">
+        <h2 class="card-title text-base">2. Objet & Méthode</h2>
+        <div class="divider my-1"></div>
+
+        <ul class="space-y-2 text-sm">
+          <!-- Propriété d'objet -->
+          <li>
+            <span class="font-semibold">Rôle :</span> {{ currentStudent.role }}
+          </li>
+
+          <!-- Appel de méthode -->
+          <li>
+            <span class="font-semibold">Nom complet (Méthode) :</span>
+            <span class="font-bold">{{ getFullName() }}</span>
+          </li>
+
+          <!-- Condition avec opérateur ternaire -->
+          <li>
+            <span class="font-semibold">Statut :</span>
+            <span class="badge {{ currentStudent.isActive ? 'badge-success' : 'badge-error' }}">
+              {{ currentStudent.isActive ? 'Online' : 'Déconnecté' }}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Carte 3 : Tableau -->
+    <div class="card bg-base-100 shadow-md border border-base-200 md:col-span-2">
+      <div class="card-body">
+        <h2 class="card-title text-base">3. Tableaux (Array)</h2>
+        <div class="divider my-1"></div>
+
+        <div class="space-y-3 text-sm">
+          <!-- Accès par index -->
+          <p>
+            <span class="font-semibold">Première compétence (skills[0]) :</span>
+            <span class="badge badge-outline badge-accent">{{ skills[0] }}</span>
+          </p>
+
+          <!-- Méthode native JS sur tableau -->
+          <p>
+            <span class="font-semibold">Toutes les compétences (.join) :</span>
+            <span class="font-mono text-xs bg-base-200 p-2 rounded-box block mt-1">
+              {{ skills.join(' • ') }}
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -4,20 +4,25 @@
   <div class="collapse-title navbar">
     <div class="navbar-start">
       <label for="navbar-1-toggle" class="btn btn-ghost lg:hidden">
-        <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+        </svg>
       </label>
       <button class="btn btn-ghost text-xl">NG Compagnons Dev Arbitraire</button>
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
+        <!-- Utilisation de routerLink -->
         <li><a routerLink="/home"><button>Accueil</button></a></li>
         <li><a routerLink="/contact"><button>Contact</button></a></li>
         <li><a routerLink="/about"><button>À Propos</button></a></li>
+        <li><a routerLink="/ex-interpolation"><button>EX-Interpolation</button></a></li>
         <li>
           <details>
-            <summary>Parent</summary>
+            <summary>Lessons</summary>
             <ul class="p-2 bg-base-100 w-40 z-1">
-              <li><button>Submenu 1</button></li>
+              <li><a routerLink="/lessons/text-interpolation"><button>Lesson TextInterpolation</button></a></li>
               <li><button>Submenu 2</button></li>
             </ul>
           </details>
