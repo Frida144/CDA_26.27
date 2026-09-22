@@ -1,0 +1,10 @@
+<div class="container bg-sky-500 mx-auto p-8 max-w-2xl rounded-xl shadow-lg">
+  <h2 class="text-center text-3xl font-bold text-primary-focus">Active user</h2>
+    <p class="font-semibold mt-2" >Message: <span class="text-primary">{{ texteParent }}</span></p>
+    <p class="font-semibold mt-2">Conteur: <span class="text-primary">{{ conteurParent }}</span></p>
+
+    <app-child-exercice
+      [(texte)]="texteParent"
+      [(conteur)]="conteurParent">
+    </app-child-exercice>
+</div>.                                                                           

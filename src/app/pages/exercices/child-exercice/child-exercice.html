@@ -1,0 +1,15 @@
+<div class="container bg-yellow-500 mx-auto p-8 max-w-2xl rounded-xl shadow-lg">
+
+  <h2 class="text-center text-3xl font-bold text-primary-focus">Child Component</h2>
+
+  <div class="mt-4">
+    <label for="messageInput" class="block font-medium mb-2" >Entrez le message:</label>
+    <input id="messageInput" class="input input-bordered input-primary w-full" placeholder="Enter a message" [ngModel]="texte()" (ngModelChange)="texte.set($event)" />
+  </div>
+
+  <div class="mt-4 flex items-center gap-2">
+    <label for="counterInput" class="font-medium">Compteur:</label>
+    <input id="counterInput" type="number" class="input input-bordered input-primary w-full" [ngModel]="conteur()" (ngModelChange)="conteur.set($event)" />
+  </div>
+
+</div>

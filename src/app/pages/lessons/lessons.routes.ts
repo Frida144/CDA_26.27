@@ -24,5 +24,9 @@ export const LESSONS_ROUTES : Route[] = [
   {
     path:'list-rendering',
     loadComponent:()=> import('./list-rendering/list-rendering').then(m=>m.ListRendering)
-  }
+  },
+  {
+    path:'parent',
+    loadComponent:()=> import('./parent/parent').then(m=>m.Parent)
+  },
 ]

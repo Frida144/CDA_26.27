@@ -16,5 +16,9 @@ export const EXERCICES_ROUTES : Route[] = [
   {
     path:'tp-directives',
     loadComponent:()=> import('./tp-directives/tp-directives').then(m=>m.TpDirectives)
+  },
+  {
+    path:'parent-exercice',
+    loadComponent:()=> import('./parent-exercice/parent-exercice').then(m=>m.ParentExercice)
   }
 ]
