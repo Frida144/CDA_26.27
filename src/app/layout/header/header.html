@@ -1,6 +1,9 @@
-<div class="max-lg:collapse bg-base-200 lg:mb-48 shadow-sm w-full rounded-md">
+<header class="header relative z-50 bg-base-200 lg:mb-48 shadow-sm w-full rounded-md">
   <input id="navbar-1-toggle" class="peer hidden" type="checkbox" />
-  <label for="navbar-1-toggle" class="fixed inset-0 hidden max-lg:peer-checked:block"></label>
+
+  <!-- overlay de fermeture -->
+  <label for="navbar-1-toggle" class="fixed inset-0 z-40 hidden bg-black/40 max-lg:peer-checked:block"></label>
+
   <div class="collapse-title navbar">
     <div class="navbar-start">
       <label for="navbar-1-toggle" class="btn btn-ghost lg:hidden">
@@ -9,43 +12,96 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
         </svg>
       </label>
-      <button class="btn btn-ghost text-xl">NG Compagnons Dev Arbitraire</button>
+      <button class="btn btn-ghost text-xl">Frida.vue</button>
     </div>
+
+    <!-- menu desktop -->
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
-        <!-- Utilisation de routerLink -->
         <li><a routerLink="/home"><button>Accueil</button></a></li>
-        <li><a routerLink="/contact"><button>Contact</button></a></li>
-        <li><a routerLink="/about"><button>À Propos</button></a></li>
-        <li><a routerLink="/ex-interpolation"><button>EX-Interpolation</button></a></li>
         <li>
           <details>
-            <summary>Lessons</summary>
-            <ul class="p-2 bg-base-100 w-40 z-1">
+            <summary>Leçons</summary>
+            <ul class="card z-50 w-fit bg-base-100 shadow-xl">
+              <li><a routerLink="/lessons/setup"><button>Lesson Setup</button></a></li>
               <li><a routerLink="/lessons/text-interpolation"><button>Lesson TextInterpolation</button></a></li>
-              <li><button>Submenu 2</button></li>
+              <li><a routerLink="/lessons/event-binding"><button>Lesson EventBinding</button></a></li>
+              <li><a routerLink="/lessons/property-binding"><button>Lesson PropertyBinding</button></a></li>
+              <li><a routerLink="/lessons/conditional-rendering"><button>Lesson ConditionalRendering</button></a></li>
+              <li><a routerLink="/lessons/list-rendering"><button>Lesson ListRendering</button></a></li>
             </ul>
           </details>
         </li>
-        <li><button>Item 3</button></li>
+        <li>
+          <details>
+            <summary>Evaluations</summary>
+            <ul class="card z-50 w-fit bg-base-100 shadow-xl">
+              <li><a routerLink="/contact"><button>Contact</button></a></li>
+              <li><a routerLink="/about"><button>À Propos</button></a></li>
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>Exercices</summary>
+            <ul class="card z-50 w-fit bg-base-100 shadow-xl">
+              <li><a routerLink="/ex-interpolation"><button>EX-Interpolation</button></a></li>
+              <li><a routerLink="/exercices/event-binding"><button>EX-EventBinding</button></a></li>
+              <li><a routerLink="/exercices/tp-directives"><button>TP-Directives</button></a></li>
+            </ul>
+          </details>
+        </li>
       </ul>
     </div>
+
     <div class="navbar-end">
       <input type="text" placeholder="Search" class="input w-64 lg:w-auto" />
     </div>
   </div>
 
-  <div class="collapse-content lg:hidden z-1">
-    <ul class="menu">
-      <li><button>Item 1</button></li>
+  <!-- panneau mobile -->
+  <nav class="fixed top-0 left-0 z-50 h-full w-72 max-w-[80%] -translate-x-full
+             overflow-y-auto bg-base-100 shadow-xl transition-transform duration-300
+             peer-checked:translate-x-0 lg:hidden">
+    <ul class="menu p-4">
+      <li><a routerLink="/home"><button>Accueil</button></a></li>
+
       <li>
-        <button>Parent</button>
-        <ul>
-          <li><button>Submenu 1</button></li>
-          <li><button>Submenu 2</button></li>
-        </ul>
+        <details>
+          <summary>Leçons</summary>
+          <ul>
+            <li><a routerLink="/lessons/setup"><button>Lesson Setup</button></a></li>
+            <li><a routerLink="/lessons/text-interpolation"><button>Lesson TextInterpolation</button></a></li>
+            <li><a routerLink="/lessons/event-binding"><button>Lesson EventBinding</button></a></li>
+            <li><a routerLink="/lessons/property-binding"><button>Lesson PropertyBinding</button></a></li>
+            <li><a routerLink="/lessons/conditional-rendering"><button>Lesson ConditionalRendering</button></a></li>
+            <li><a routerLink="/lessons/list-rendering"><button>Lesson ListRendering</button></a></li>
+            
+          </ul>
+        </details>
       </li>
-      <li><button>Item 3</button></li>
+
+      <li>
+        <details>
+          <summary>Evaluations</summary>
+          <ul>
+            <li><a routerLink="/contact"><button>Contact</button></a></li>
+            <li><a routerLink="/about"><button>À Propos</button></a></li>
+
+          </ul>
+        </details>
+      </li>
+
+      <li>
+        <details>
+          <summary>Exercices</summary>
+          <ul>
+            <li><a routerLink="/ex-interpolation"><button>EX-Interpolation</button></a></li>
+            <li><a routerLink="/exercices/event-binding"><button>EX-EventBinding</button></a></li>
+            <li><a routerLink="/exercices/tp-directives"><button>TP-Directives</button></a></li> 
+          </ul>
+        </details>
+      </li>
     </ul>
-  </div>
-</div>
+  </nav>
+</header>

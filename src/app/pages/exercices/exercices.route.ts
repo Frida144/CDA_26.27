@@ -8,5 +8,13 @@ export const EXERCICES_ROUTES : Route[] = [
   {
     path:'attribute-binding',
     loadComponent:()=> import('./attributes-binding-exercice/attributes-binding-exercice').then(m=>m.AttributesBindingExercice)
+  },
+  {
+    path:'event-binding',
+    loadComponent:()=> import('./event-binding-exercice/event-binding-exercice').then(m=>m.EventBindingExercice)
+  },
+  {
+    path:'tp-directives',
+    loadComponent:()=> import('./tp-directives/tp-directives').then(m=>m.TpDirectives)
   }
 ]

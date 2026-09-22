@@ -1,0 +1,42 @@
+<div id="list-friends" class="max-w-3xl mx-auto p-6 space-y-6">
+  <!-- 🟦 TITRE -->
+  <h1 class="text-3xl font-bold text-center text-primary">
+    List Friends <span class="text-base-content/70">(Event Binding)</span>
+  </h1>
+
+  <!-- 🟩 INPUT -->
+  <div class="form-control w-full max-w-md mx-auto">
+    <label class="label">
+      <span class="label-text text-base-content">Nom de l'ami</span>
+    </label>
+    <!-- <input (input)="onUpdateFriendsList($event)" type="text" placeholder="Entrer le nom d'un ami"
+      class="input input-bordered w-full" aria-label="Nom de l'ami" /> -->
+    <input [(ngModel)]="listFriendsInputText" type="text" placeholder="Entrer le nom d'un ami"
+      class="input input-bordered w-full" aria-label="Nom de l'ami" />
+  </div>
+
+  <!-- 🟨 INFOS TEXTE -->
+  <div class="text-center space-y-2">
+    <p class="text-base text-secondary font-medium">
+      {{ listFriendsInputText }}
+    </p>
+    <!-- ICI Ambiance NgIF -->
+    <p *ngIf="listFriendsAuth; else failTemplate" class="text-sm text-accent">
+      <!-- {{ listFriendsCreationStatus }} -->
+      🥳🥳🥳 Votre ami a été ajouté !
+    </p>
+    <ng-template #failTemplate><p>TA PAS DE POTE (🥶🥶🥶 Aucun ami ...)</p></ng-template>
+  </div>
+
+  <!-- 🟧 BOUTON AJOUTER -->
+  <div class="text-center">
+    <button class="btn btn-primary btn-wide" (click)="onAddingFriends()" [disabled]="listFriendsAuth">
+      ➕ Ajouter un ami
+    </button>
+  </div>
+
+  <!-- 🟪 LISTE D’AMIS -->
+  <div class="mt-6">
+    <!-- <app-one-friend-event-binding></app-one-friend-event-binding> -->
+  </div>
+</div>
