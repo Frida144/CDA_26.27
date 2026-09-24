@@ -1,0 +1,143 @@
+<div class="max-w-4xl mx-auto p-6 space-y-8">
+
+  <!-- En-tête -->
+  <div class="border-b border-base-300 pb-4 flex justify-between items-center">
+    <div>
+      <h1 class="text-3xl font-extrabold text-primary">Exercice : Panier Réactif avec Signals</h1>
+      <p class="text-sm text-base-content/70">
+        Pratique de <code>signal()</code>, <code>computed()</code> et <code>effect()</code>.
+      </p>
+    </div>
+    <button class="btn btn-outline btn-sm btn-error" (click)="resetCart()">
+      ↺ Réinitialiser
+    </button>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+    <!-- CONTRÔLES & OPTIONS -->
+    <div class="card bg-base-200 shadow-lg border border-base-300">
+      <div class="card-body space-y-6">
+        <h2 class="card-title text-secondary">1. Configuration de la commande</h2>
+
+        <!-- Quantité -->
+        <div class="form-control">
+          <label class="label"><span class="label-text font-bold">Quantité d'articles</span></label>
+          <div class="flex items-center gap-4">
+            <button
+              class="btn btn-circle btn-outline btn-sm"
+              (click)="decrementQuantity()"
+              [disabled]="quantity() === 0">
+              -
+            </button>
+            <span class="text-2xl font-bold w-12 text-center">{{ quantity() }}</span>
+            <button
+              class="btn btn-circle btn-outline btn-sm"
+              (click)="incrementQuantity()">
+              +
+            </button>
+            <span class="text-xs text-base-content/60 ml-auto">({{ unitPrice() }} € / unité)</span>
+          </div>
+        </div>
+
+        <!-- Code de réduction -->
+        <div class="form-control">
+          <label class="label"><span class="label-text font-bold">Code Promo / Remise</span></label>
+          <div class="join w-full">
+            <button
+              class="btn join-item flex-1 btn-sm"
+              [class.btn-primary]="discountPercent() === 0"
+              (click)="setDiscount(0)">
+              Aucune (0%)
+            </button>
+            <button
+              class="btn join-item flex-1 btn-sm"
+              [class.btn-primary]="discountPercent() === 10"
+              (click)="setDiscount(10)">
+              -10%
+            </button>
+            <button
+              class="btn join-item flex-1 btn-sm"
+              [class.btn-primary]="discountPercent() === 20"
+              (click)="setDiscount(20)">
+              -20%
+            </button>
+          </div>
+        </div>
+
+        <!-- Option de livraison -->
+        <div class="form-control">
+          <label class="label cursor-pointer justify-between bg-base-100 p-3 rounded-lg border border-base-300">
+            <div>
+              <span class="label-text font-bold block">Livraison Express (24h)</span>
+              <span class="text-xs text-base-content/60">Supplément fixe de 12 €</span>
+            </div>
+            <input
+              type="checkbox"
+              class="toggle toggle-primary"
+              [checked]="isExpressShipping()"
+              (change)="toggleExpressShipping()" />
+          </label>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RÉSUMÉ DYNAMIQUE (COMPUTED) -->
+    <div class="card bg-base-100 shadow-xl border-2 border-primary/30">
+      <div class="card-body space-y-4">
+        <h2 class="card-title text-primary">2. Synthèse de la commande</h2>
+        <p class="text-xs text-base-content/60">Toutes les valeurs ci-dessous proviennent de <code>computed()</code>.</p>
+
+        <div class="space-y-3 text-sm">
+          <!-- Sous-total -->
+          <div class="flex justify-between items-center py-1 border-b border-base-200">
+            <span>Sous-total brut</span>
+            <span class="font-mono font-semibold">{{ subtotal() }} €</span>
+          </div>
+
+          <!-- Remise -->
+          <div class="flex justify-between items-center py-1 border-b border-base-200 text-success">
+            <span>Remise ({{ discountPercent() }}%)</span>
+            <span class="font-mono font-semibold">- {{ discountAmount().toFixed(2) }} €</span>
+          </div>
+
+          <!-- Frais de port -->
+          <div class="flex justify-between items-center py-1 border-b border-base-200">
+            <div class="flex items-center gap-2">
+              <span>Frais de port</span>
+              @if (shippingFee() === 0 && quantity() > 0) {
+                <span class="badge badge-success badge-xs">Offert</span>
+              }
+            </div>
+            <span class="font-mono font-semibold">{{ shippingFee() }} €</span>
+          </div>
+
+          <!-- Total final -->
+          <div class="stat bg-base-200 rounded-box p-4 mt-4">
+            <div class="stat-title text-xs">Total à payer</div>
+            <div class="stat-value text-primary text-3xl font-black">
+              {{ total().toFixed(2) }} €
+            </div>
+            <div class="stat-desc mt-1">
+              @if (isExpressShipping()) {
+                ⚡ Mode Express sélectionné
+              } @else if (subtotal() < 100 && quantity() > 0) {
+                💡 Encore {{ 100 - subtotal() }} € pour la livraison standard gratuite !
+              }
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="btn btn-primary w-full mt-4"
+          [disabled]="quantity() === 0">
+          Commander ({{ quantity() }} article{{ quantity() > 1 ? 's' : '' }})
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

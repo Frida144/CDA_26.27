@@ -1,0 +1,119 @@
+<div class="max-w-xl mx-auto p-6 space-y-6">
+
+  <!-- En-tête -->
+  <div class="border-b border-base-300 pb-4">
+    <h1 class="text-3xl font-extrabold text-primary">Exercice : Validation de Formulaire</h1>
+    <p class="text-sm text-base-content/70">
+      Validation temps réel via RegEx et <code>computed()</code> sans dépendre de ReactiveForms.
+    </p>
+  </div>
+
+  @if (isSubmitted()) {
+    <div class="alert alert-success shadow-lg">
+      <span>Inscription réussie ! Vos données ont été enregistrées avec succès.</span>
+      <button class="btn btn-sm btn-ghost" (click)="resetForm()">Nouveau formulaire</button>
+    </div>
+  } @else {
+
+    <form (submit)="submitForm($event)" class="card bg-base-100 shadow-xl border border-base-300">
+      <div class="card-body space-y-4">
+
+        <!-- CHAMP 1 : EMAIL -->
+        <div class="form-control">
+          <label class="label"><span class="label-text font-bold">Adresse Email</span></label>
+          <input
+            type="email"
+            placeholder="exemple@domaine.fr"
+            class="input input-bordered w-full"
+            [class.input-error]="emailTouched() && !isEmailValid()"
+            [class.input-success]="emailTouched() && isEmailValid()"
+            [value]="email()"
+            (input)="onInput(email, emailTouched, $event)" />
+
+          @if (emailTouched() && !isEmailValid()) {
+            <label class="label">
+              <span class="label-text-alt text-error">Veuillez saisir une adresse e-mail valide.</span>
+            </label>
+          }
+        </div>
+
+        <!-- CHAMP 2 : MOT DE PASSE -->
+        <div class="form-control">
+          <label class="label"><span class="label-text font-bold">Mot de passe</span></label>
+          <div class="join w-full">
+            <input
+              [type]="showPassword() ? 'text' : 'password'"
+              placeholder="••••••••"
+              class="input input-bordered join-item flex-1"
+              [class.input-error]="passwordTouched() && !isPasswordValid()"
+              [class.input-success]="passwordTouched() && isPasswordValid()"
+              [value]="password()"
+              (input)="onInput(password, passwordTouched, $event)" />
+
+            <button
+              type="button"
+              class="btn join-item"
+              (click)="toggleShowPassword()">
+              {{ showPassword() ? 'Masquer' : 'Afficher' }}
+            </button>
+          </div>
+
+          <!-- Jauge de force du mot de passe -->
+          @if (password()) {
+            <div class="mt-2 space-y-1">
+              <div class="flex justify-between text-xs">
+                <span>Force du mot de passe :</span>
+                <span class="font-bold">{{ passwordStrengthLabel().text }}</span>
+              </div>
+              <progress
+                class="progress w-full transition-all"
+                [class]="passwordStrengthLabel().class"
+                [value]="passwordScore()"
+                max="4">
+              </progress>
+            </div>
+          }
+
+          @if (passwordTouched() && !isPasswordValid()) {
+            <label class="label">
+              <span class="label-text-alt text-error">
+                8 caractères min., 1 majuscule, 1 chiffre et 1 caractère spécial (&#64;$!%*?&amp;).
+              </span>
+            </label>
+          }
+        </div>
+
+        <!-- CHAMP 3 : TÉLÉPHONE -->
+        <div class="form-control">
+          <label class="label"><span class="label-text font-bold">Téléphone portable</span></label>
+          <input
+            type="tel"
+            placeholder="06 12 34 56 78"
+            class="input input-bordered w-full"
+            [class.input-error]="phoneTouched() && !isPhoneValid()"
+            [class.input-success]="phoneTouched() && isPhoneValid()"
+            [value]="phone()"
+            (input)="onInput(phone, phoneTouched, $event)" />
+
+          @if (phoneTouched() && !isPhoneValid()) {
+            <label class="label">
+              <span class="label-text-alt text-error">Format attendu : 06XXXXXXXX ou +336XXXXXXXX.</span>
+            </label>
+          }
+        </div>
+
+        <!-- BOUTON DE SOUMISSION -->
+        <div class="card-actions justify-end mt-4">
+          <button
+            type="submit"
+            class="btn btn-primary w-full"
+            [disabled]="!isFormValid()">
+            Créer mon compte
+          </button>
+        </div>
+
+      </div>
+    </form>
+  }
+
+</div>

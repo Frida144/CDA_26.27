@@ -20,6 +20,15 @@ export const routes: Routes = [
     path:'contact',
     loadComponent : ()=> import('./pages/contact/contact').then(m=>m.Contact)
   },
+  {
+    path:'login',
+    loadComponent : ()=> import('./pages/auth/login/login.component/login.component').then(m=>m.Login)
+  },
+  {
+    path:'dashboard',
+    redirectTo:'home',
+    pathMatch:'full'
+  },
   //! Ici on va importer toutes les routes LESSONS
   {
     path:'lessons',
@@ -43,6 +52,10 @@ export const routes: Routes = [
   {
     path:'ex-attribute-binding',
     loadComponent : ()=>import('./pages/exercices/attributes-binding-exercice/attributes-binding-exercice').then(m=>m.AttributesBindingExercice)
+  },
+  {
+    path:'service-meteo',
+    loadComponent : ()=>import('./services/meteo-service-comp').then(m=>m.HttpApi)
   },
   // Gestion des pages non trouvées si on va sur une route non listé dans précédentes alors on va sur un composant notFound
   {

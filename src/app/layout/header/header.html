@@ -30,6 +30,11 @@
               <li><a routerLink="/lessons/conditional-rendering"><button>Lesson ConditionalRendering</button></a></li>
               <li><a routerLink="/lessons/list-rendering"><button>Lesson ListRendering</button></a></li>
               <li><a routerLink="/lessons/parent"><button>Lesson Component Parent</button></a></li>
+              <li><a routerLink="/lessons/pipes"><button>Lesson Pipes</button></a></li>
+              <li><a routerLink="/lessons/observables"><button>Lesson Observables</button></a></li>
+              <li><a routerLink="/lessons/observables-lesson"><button>Lesson Observables Lesson</button></a></li>
+              <li><a routerLink="/lessons/signals"><button>Lesson Signals</button></a></li>
+              <li><a routerLink="/lessons/register"><button>Lesson Register</button></a></li>
             </ul>
           </details>
         </li>
@@ -51,6 +56,12 @@
               <li><a routerLink="/exercices/event-binding"><button>EX-EventBinding</button></a></li>
               <li><a routerLink="/exercices/tp-directives"><button>TP-Directives</button></a></li>
               <li><a routerLink="/exercices/parent-exercice"><button>TP-Parent</button></a></li>
+              <li><a routerLink="/service-meteo"><button>Service Météo</button></a></li>
+              <li><a routerLink="/exercices/user-profile-api"><button>Exercice User Profile API</button></a></li>
+              <li><a routerLink="/exercices/observables-exercice"><button>Exercice Observables</button></a></li>
+              <li><a routerLink="/exercices/signals-exercice"><button>Exercice Signals</button></a></li>
+              <li><a routerLink="/exercices/signals-formulaire"><button>Exercice Signals Formulaire</button></a></li>
+              <li><a routerLink="/exercices/task-list-fb-exercice"><button>Exercice Task List Firebase</button></a></li>
             </ul>
           </details>
         </li>
@@ -59,6 +70,9 @@
 
     <div class="navbar-end">
       <input type="text" placeholder="Search" class="input w-64 lg:w-auto" />
+      @if (user()) {
+        <app-log-out-button />
+      }
     </div>
   </div>
 
@@ -80,6 +94,11 @@
             <li><a routerLink="/lessons/conditional-rendering"><button>Lesson ConditionalRendering</button></a></li>
             <li><a routerLink="/lessons/list-rendering"><button>Lesson ListRendering</button></a></li>
             <li><a routerLink="/lessons/parent"><button>Lesson Component Parent</button></a></li>
+            <li><a routerLink="/lessons/pipes"><button>Lesson Pipes</button></a></li>
+            <li><a routerLink="/lessons/observables"><button>Lesson Observables</button></a></li>
+            <li><a routerLink="/lessons/observables-lesson"><button>Lesson Observables Lesson</button></a></li>
+            <li><a routerLink="/lessons/signals"><button>Lesson Signals</button></a></li>
+            <li><a routerLink="/lessons/register"><button>Lesson Register</button></a></li>
             
           </ul>
         </details>
@@ -105,9 +124,23 @@
             <li><a routerLink="/exercices/event-binding"><button>EX-EventBinding</button></a></li>
             <li><a routerLink="/exercices/tp-directives"><button>TP-Directives</button></a></li> 
             <li><a routerLink="/exercices/parent-exercice"><button>TP-Parent</button></a></li>
+            <li><a routerLink="/service-meteo"><button>Service Météo</button></a></li>
+            <li><a routerLink="/exercices/user-profile-api"><button>Exercice User Profile API</button></a></li>
+            <li><a routerLink="/exercices/observables-exercice"><button>Exercice Observables</button></a></li>
+            <li><a routerLink="/exercices/signals-exercice"><button>Exercice Signals</button></a></li>
+            <li><a routerLink="/exercices/signals-formulaire"><button>Exercice Signals Formulaire</button></a></li>
+            <li><a routerLink="/exercices/task-list-fb-exercice"><button>Exercice Task List Firebase</button></a></li>
           </ul>
         </details>
       </li>
+
+        <div class="navbar-end">
+<!-- Affichage du bouton Déconnexion uniquement si un utilisateur est connecté -->
+      @if (user()) {
+        <app-log-out-button />
+            }     
+        </div>
     </ul>
+
   </nav>
 </header>

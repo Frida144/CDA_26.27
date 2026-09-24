@@ -1,21 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UserInterface } from './user.interface';
+import { User } from './user.interface';
 
-describe('UserInterface', () => {
-  let component: UserInterface;
-  let fixture: ComponentFixture<UserInterface>;
+describe('User', () => {
+  it('should accept a valid user shape', () => {
+    const user: User = { name: 'Test', age: 30 };
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [UserInterface],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(UserInterface);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(user).toEqual({ name: 'Test', age: 30 });
   });
 });

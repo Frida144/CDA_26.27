@@ -12,6 +12,7 @@ describe('ActiveUser', () => {
 
     fixture = TestBed.createComponent(ActiveUser);
     component = fixture.componentInstance;
+    component.activeUser = { name: 'Test', age: 30 };
     await fixture.whenStable();
   });
 

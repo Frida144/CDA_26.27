@@ -29,4 +29,24 @@ export const LESSONS_ROUTES : Route[] = [
     path:'parent',
     loadComponent:()=> import('./parent/parent').then(m=>m.Parent)
   },
+  {
+    path:'pipes',
+    loadComponent:()=> import('./pipes/pipes').then(m=>m.Pipes)
+  },
+  {
+    path:'observables',
+    loadComponent:()=> import('./observables/observables').then(m=>m.Observables)
+  },
+  {
+    path:'observables-lesson',
+    loadComponent:()=> import('./observables-lesson/observables-lesson').then(m=>m.ObservablesLesson)
+  },
+  {
+    path:'signals',
+    loadComponent:()=> import('./signals/signals').then(m=>m.Signals)
+  },
+  {
+    path:'register',
+    loadComponent:()=> import('./register/register').then(m=>m.Register)
+  },
 ]
