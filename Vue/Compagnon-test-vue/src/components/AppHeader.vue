@@ -97,6 +97,15 @@
               </ul>
             </details>
           </li>
+          <li>
+          <details>
+            <summary>Weather Travel App</summary>
+            <ul>
+              <li><router-link to="/weather-services">Recherche de services météo</router-link></li>
+              <li><router-link to="/create-weather-account">Tableau de bord</router-link></li>
+            </ul>
+          </details>
+        </li>
         </ul>
       </div>
 
@@ -178,6 +187,16 @@
               <li><router-link to="/register">Inscription</router-link></li>
               <li><router-link to="/profiles">Profils</router-link></li>
               <li><router-link to="/messagecard">Message Card</router-link></li>
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>Weather Travel App</summary>
+            <ul>
+              <li><router-link to="/weather-services">Recherche de services météo</router-link></li>
+              <li><router-link to="/create-weather-account">Tableau de bord</router-link></li>
+
             </ul>
           </details>
         </li>

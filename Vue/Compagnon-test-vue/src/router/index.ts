@@ -166,6 +166,23 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../Views/tp/TaskManager.vue'),
     },
     {
+        path: '/create-weather-account',
+        component: () => import('../Views/weatherTravelApp/CreateUserWithEmailAndPassword.vue'),
+    },
+    {
+        path: '/login-weather-account',
+        component: () => import('../Views/weatherTravelApp/SignInWithEmailAndPassword.vue'),
+    },
+    {
+        path: '/dashboardTrips',
+        name: 'dashboardTrips',
+        component: () => import('../Views/weatherTravelApp/DashboardTrips.vue'),
+    }, 
+    {
+        path: '/weather-services',
+        component: () => import('../Views/weatherTravelApp/WeatherService.vue'),
+    },
+    {
         path: '/:pathMatch(.*)*',
         component: () => import('../Views/tp/NotFound.vue'),
     },

@@ -12,5 +12,5 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/services/ArticleDataService.js", "firebase.js", "src/services/EventDataService.js", "src/stores/CounterStore.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/services/ArticleDataService.js", "firebase.js", "src/services/EventDataService.js", "src/stores/CounterStore.ts", "src/services/TripService.js"]
 }
