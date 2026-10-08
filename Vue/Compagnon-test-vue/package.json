@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "cy:open": "cypress open",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview"
   },
@@ -21,11 +22,15 @@
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.13.3",
     "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/test-utils": "^2.5.1",
     "@vue/tsconfig": "^0.9.1",
+    "cypress": "^16.1.1",
     "daisyui": "^5.7.32",
+    "happy-dom": "^20.14.5",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2",
     "vite": "^8.2.2",
+    "vitest": "^5.0.3",
     "vue-tsc": "^3.3.11"
   }
 }

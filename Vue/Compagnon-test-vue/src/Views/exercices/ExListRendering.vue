@@ -28,10 +28,22 @@
 </template>
 
 <script setup lang="js">
-import { ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
+const storageKey = 'watchlist-films'
 const nomFilm = ref('')
 const mesFilms = ref([])
+
+onMounted(() => {
+    const filmsSauvegardes = localStorage.getItem(storageKey)
+    if (filmsSauvegardes) {
+        mesFilms.value = JSON.parse(filmsSauvegardes)
+    }
+})
+
+watch(mesFilms, (films) => {
+    localStorage.setItem(storageKey, JSON.stringify(films))
+}, { deep: true })
 
 function ajouterFilm() {
     if (nomFilm.value.trim() === '') return
