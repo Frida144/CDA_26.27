@@ -169,7 +169,7 @@ $nbr3 = (float) readline("Saisir un troisieme nombre \t"); echo $nbr3;
 $nbr4 = (float) readline("Saisir un quatrieme nombre \t"); echo $nbr4;
 $nbr5 = (float) readline("Saisir un cinquieme nombre \t"); echo $nbr5;
 
-function plusGrand(int|float $nbr1, int|float $nbr2, int|float $nbr3, int|float $nbr4, int|float$nbr5): string {
+function plusGrand(int|float $nbr1, int|float $nbr2, int|float $nbr3, int|float $nbr4, int|float $nbr5): string {
     $plusGrand = $nbr1;
 
     if ($nbr2 > $plusGrand) {
@@ -254,5 +254,4 @@ function initiales(string $prenom, string $nom): string {
     return $initiales;
 }
 echo "Vos initiales sont : " . initiales($prenom, $nom) . "\n";
-
 ?>
