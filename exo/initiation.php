@@ -1,7 +1,7 @@
 <?php
 //Exercice 1
-echo "Bonjour le monde !";
-echo "Bienvenue dans le cours PHP.";
+echo "Bonjour le monde ! ". PHP_EOL .
+"Bienvenue dans le cours PHP.";
 
 //Exercice 2 - Les variables
 
