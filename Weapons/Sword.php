@@ -33,7 +33,7 @@ class Sword implements Weapon {
     //METHOD
     public function hit():int{
         //1. Affichage du message
-        echo("Une taillade à l'épée longue");
+        echo("Une taillade à l'épée longue" . PHP_EOL);
 
         //2. Retourner les dégâts
         return $this->damage;
